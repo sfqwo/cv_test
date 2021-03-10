@@ -1,0 +1,458 @@
+//====== MIXIN ======
+@mixin Pop-white{
+    color: white;
+    font-weight: $fw-nb;
+    letter-spacing: 1px;
+    background-color: rgb(48, 65, 167);
+    border-radius: 3%;
+}
+
+@mixin Pop {
+    color: black;
+    font-weight: $fw-b;
+    font-size: 1vw;
+}
+
+@mixin Pop-grey{
+    color: grey;
+    font-size: 1.5vw;
+}
+
+
+@mixin dot {
+    span {
+        color: rgb(31, 28, 196);
+    }
+}
+
+@mixin active {
+    @include dot;
+    color: rgb(31, 28, 196);
+    font-weight: $fw-b;
+    transition: $transition;
+}
+//====== MIXIN ======
+
+
+//====== VARIABLES ======
+$fw-l: 100;
+$fw-n: 400;
+$fw-nb: 500;
+$fw-b: 700;
+
+$transition: .5s;
+//====== VARIABLES ======
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+}
+.header {
+    width: 100%;
+    background: white;
+    padding: 3vh 3vh;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+}
+
+.header_fixed {
+    width: 100%;
+    position: fixed;
+    opacity: .99;
+    top: -5px;
+    z-index: 100;
+  }
+
+.header___main {
+    width: 100%;
+    display: flex;
+    align-items: center; 
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.nav-wrapper{
+    display: flex;
+    justify-content: flex-end;
+    &__item{
+        & + & {
+            margin-left: 10%; 
+        }
+        &-link{
+            @include Pop;
+            font-weight: $fw-n;
+            letter-spacing: 2px;
+
+            &:hover{
+                @include active;
+            }
+        }
+    }
+}
+
+.logo__style {
+    @include Pop;
+    @include dot;
+    width: 50%;
+    font-weight: $fw-b;
+    font-size: 1.7vw;;
+}
+.nav {
+  width: 50%
+}
+
+.main {
+    margin: 2% 3%;
+    &-info{
+        display: flex;
+        &__myPhoto {
+            width: 60%;
+        }
+    }
+    border-bottom: 2px solid rgb(163, 163, 163);
+    
+}
+.aboutme{
+    width: 60%;
+    &__hey{
+        @include Pop;
+        @include dot;
+        font-size: 3vw;
+    }
+    &__iam{
+        @include Pop-grey;
+    }
+}
+
+.contact {
+    @include Pop;
+    display: flex;
+    font-weight: $fw-n;
+    font-size: 1.2vw;
+    margin-top: 5%;
+        &__left{
+            &-item{
+                height: 5vw;
+                margin: 0 0 0.5vw 0;
+            }
+        }
+        &__right{
+            &-item{
+                width:  65vw;
+                height: 5vw;
+                margin: 0 0 0.5vw 10%;
+                &__icons{
+                    width: 15%;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-left: -1%;
+                }
+            }
+            
+        }
+    }
+
+.buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 5vw 0;
+    &-choice{
+        margin-bottom: 5%;
+        &__contactme{
+            width: 12%;
+            height: 4vw;
+            position: absolute;
+            &-btn1 {
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                background: rgb(48, 65, 167);;
+                border: 1px solid rgb(48, 65, 167);
+                outline: none;
+                transition: 1s ease-in-out;
+                &:hover {
+                    transition: 1s ease-in-out;
+                    background: white;
+                    span{
+                        color: rgb(48, 65, 167);
+                        font-weight: $fw-b;
+                        transition: 1s ease-in-out;
+                    }
+                  }
+                svg {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    fill: none;
+                    stroke: rgb(48, 65, 167);
+                    stroke-dasharray: 150 480;
+                    stroke-dashoffset: 150;
+                    transition: 1s ease-in-out;
+                  }
+                &:hover svg {
+                    stroke-dashoffset: -480;
+                  }
+                span{
+                    font-size: 0.9vw;
+                    font-weight: $fw-l;
+                    color: white;
+                    transition: 1s ease-in-out;
+                }
+              }
+        }
+        &__downloadcv{
+            width: 12%;
+            height: 4vw;
+            position: absolute;
+            left: 20%;
+            &-btn2 {
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                background: transparent;
+                border: 1px solid rgb(231, 96, 5);
+                outline: none;
+                transition: 1s ease-in-out;
+                &:hover {
+                    transition: 1s ease-in-out;
+                    background-color: rgb(231, 96, 5);
+                    span{
+                        color: white;
+                        transition: 1s ease-in-out;
+                    }
+                  }
+                svg {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    fill: none;
+                    stroke:rgb(231, 96, 5);
+                    stroke-dasharray: 150 480;
+                    stroke-dashoffset: 150;
+                    transition: 1s ease-in-out;
+                  }
+                &:hover svg {
+                    stroke-dashoffset: -480;
+                    color:#fff;
+                  }
+                span{
+                    font-size: 0.9vw;
+                    font-weight: $fw-b;
+                    color: rgb(231, 96, 5);
+                    transition: 1s ease-in-out;
+                }
+            }
+        }
+    }
+}
+
+.skills{
+    display: flex;
+    height: 100%;
+    margin: 0 3%;
+    padding: 5% 0;
+    border-bottom: 2px solid rgb(163, 163, 163);
+    &-left{
+        width: 33.333%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 3%;
+        a{
+            font-size: 3vw;
+        }
+        &__me{
+            @include Pop-grey;
+            font-size: 1.5vw;
+        }
+        &__image{
+            margin: 10% 30%;
+            transition: all ease 1s;
+            transition-property: all;
+            &:hover{
+                transition-duration: 1s;
+                transition-delay: .2s;
+                transform: scale(1.3);
+            }
+        }
+        &-word{
+            margin: -2% 15%;
+            transform: rotateZ(-230deg);
+            width: 30px;
+            
+            }
+        &-text{
+            font-family: 'Indie Flower', cursive;
+        }
+    }
+    &-center{ 
+        width: 33.333%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 3%;
+        &__item{
+            display: block;
+            height: 45%;
+            &:first-child{
+                border-bottom: 2px solid rgb(163, 163, 163);
+            }
+            &-name{
+                @include Pop;
+                padding-bottom: 3%;
+                font-size: 1.8vw;
+            }
+            &-info{
+                @include Pop-grey;
+                font-size: 1.5vw;
+            }
+        }
+        &-image{
+            transition: all ease 1s;;
+            transition-property: all;
+            &:hover{
+                transition-duration: 1s;
+                transition-delay: .2s;
+                transform: rotateZ(-40deg);
+            }
+        }
+    }
+    &-right{   
+        width: 33.333%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &__item{
+            height: 45%;
+            display: block;
+            &:first-child{
+                border-bottom: 2px solid rgb(163, 163, 163);
+            }
+            &-name{
+                @include Pop;
+                padding-bottom: 3%;
+            }
+            &-info{
+                @include Pop-grey;
+                font-size: 1.5vw;
+            }        
+        }
+    }
+}
+
+.education{
+    display: flex;
+    margin: 0 3%;
+    padding: 5% 0;
+    height: 100%;
+    border-bottom: 2px solid rgb(163, 163, 163);
+    &-left{
+        width: 33.333%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 3%;
+        a{
+            font-size: 3vw;
+        }
+        &__me{
+            @include Pop-grey;
+            font-size: 1.5vw;
+        }
+        &__image{
+            margin: 10% 30%;
+            transition: all ease 1s;
+            transition-property: all;
+            &:hover{
+                transition-duration: 1s;
+                transition-delay: .2s;
+                transform: scale(1.2);
+            }
+        }
+        &-word{
+            margin: -2% 15%;
+                transform: rotateZ(0);
+                width: 30px;
+                margin-left: 15%;
+            }
+        &-text{
+            font-family: 'Indie Flower', cursive;
+            margin-left: -5%;
+        }
+    }
+    &-center{ 
+        width: 33.333%;
+        margin: 0 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &__item{
+            display: block;
+            height: 45%;
+            &-name{
+                @include Pop;
+                padding-bottom: 3%;
+                font-size: 1.8vw;
+            }
+            &-info{
+                @include Pop-grey;
+                font-size: 1.5vw;
+            }
+        }
+        &-image{
+            img{
+                margin: 0 auto;
+            }
+            transition: all ease 1s;;
+            transition-property: all;
+            &:hover{
+                transition-duration: 1s;
+                transition-delay: .2s;
+                transform: rotateZ(-40deg);
+            }
+        }
+    }
+    &-right{   
+        width: 33.333%;
+        margin: 0 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &__item{
+            height: 45%;
+            display: block;
+            &-name{
+                @include Pop;
+                padding-bottom: 3%;
+            }
+            &-info{
+                @include Pop-grey;
+                font-size: 1.5vw;
+            }  
+            
+        }
+    }
+}
+
+
+   
+.words{
+margin: 5% 19% 3% 52% ;
+    &-text{
+        font-family: 'Indie Flower', cursive;
+        margin-left: 5%;
+    }
+    &-to{
+        width: 3%;
+    }
+}
+
+.footer{
+    background: rgb(216, 208, 208);
+    color:rgb(80, 76, 76);
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    padding: 0.5% 0;
+    font-size: 1vw;
+}
